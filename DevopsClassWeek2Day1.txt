@@ -1,0 +1,249 @@
+git init
+touch sel.jav -- creating a file
+git status -- un tracked file
+git add . -- adding all file.
+git status -- Tracked file. Staging area
+git commit -m "Comments"  -- commit
+
+to edit the changes in bash
+vi filename
+type insert
+press esc
+:wq -- Write and Quit
+
+Single command with out add command
+
+git commit -am "commit changes"  
+
+Want to find how many commits??
+git log
+
+recent commit from top -- commit id(Hash code)
+commitid
+author
+date
+
+Need minimal information.
+git log --oneline             ---one line information
+modified -- will come any changes to one which already added in local
+
+Head is always at current active commit ( when 3 commits done. head will be at 3rd commit)
+
+-- branch
+
+find how many branches
+
+git branch --list
+
+Create a new branch
+git branch branchname then type
+
+git branch --list ( list out all branches)
+
+How to switch master to another branch
+
+git checkout subbranchname(feature branch) -- with out switch all the commit will go the current one master branch
+
+git checkout featurebranch
+(switched to featurebranch) msg will come
+
+now type
+git log --logoneline 
+
+note: do four commit then create fbranch and create one new commit. feature will not show 5th commit. 
+------------------------------------------------------------------
+Master Release Developement Feature Issue
+----------------------------------------------------------------
+Merging two branches
+
+At one point merging feature branch in to master branch
+
+switch your control to master
+git checkout master
+git log --logoneline
+
+git merge subbranchname
+
+git log --oneline
+
+any editor msg comes type insert give changes :wq
+------------------------------------------------------------------------
+after merging when you want to delete the branch
+Delete branch
+
+git branch -d branchname  ( delete other branch from master)
+
+----------------------------------------------------------------
+
+git log --graph  ( j in down k is up in editor)
+
+
+-----------------------------------------------------------------------
+
+git remote add origin "https://.git"  -- establish the connection
+
+git push -u origin master  --- push to remote repo
+
+create feature branch in ui and do changes and commit
+
+git pull origin branchname
+
+git branch --list
+
+git checkout fb then type
+
+git branch
+----------------------------------------------------------------------------------
+
+REBASE - Merge
+
+Merge makes the snapshot 
+Rebase entire copy
+
+create a branch directly and checkout git branch and checkout,instead
+
+git checkout -b featurebranch
+
+move to fb and rebase
+
+git rebase master
+
+Merge is the bestoption compare to rebase.
+
+Merge shows the history in proper order, where as rebase dont.
+
+
+Merge and rebase -- integrating the two branches.
+
+Merge two lines
+Rebase single line
+
+---------------------------------------------------------------------------------------------------
+
+Restore Revert Reset
+
+Restore: Working directory to old stage
+
+Restore: discard from staging area to working directory
+
+Exercise (Reverting the changes) like undo
+git init
+touch file.java
+touch pro.java
+git add
+git status
+git commit (first commit)
+git status
+
+git log --oneline 
+
+vi file.java added something:wq
+
+git status
+do the changes for second file same like above
+
+git status
+
+Want to revert.
+
+git restore secondfile.java ( Command)
+
+clear.
+
+vi secondile.java and add something
+
+git status
+
+two files displayed
+
+git add .
+
+git status ( moved to staging area)
+
+
+git status
+
+git restore --stage secondfile.java
+
+revert all changes
+
+git restore --staged .or *
+
+git add .
+
+git commit -m "second commit"
+
+Moved Staging area to local repository -(WD- stage -localRepo-Remote Repo)
+
+Using Reset discard from local repo
+
+touch rrep.java
+git add .
+git commit -m "3rd commit"
+
+want to revert 3 rd commit 
+
+git reset HEAD~1
+
+Reset -- 3 types 1. mixed reset 2.soft reset 3.hard reset
+
+
+MIX By default value is mix. code from commit area to working directory. -- unstage
+
+Soft -- commit area to staging are --- stage
+
+Hard -- Completely removed from working directory -- No files exist
+
+
+
+git add .
+git commit -m "3rd commit"
+git status
+
+git reset --mix HEAD~1 ( We can give commit id)
+
+git status
+
+changes will go to the working directory.
+
+
+git add .
+
+git commit -m "3rdcommit"
+
+git status
+
+
+git reset --soft HEAD~1  
+
+
+git commit -m ""
+
+git log --oneline
+
+git reset --hard HEAD~1
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Learn Reset ,Rebase, clone
+
+i have made 5 commits in master . if i need to create a brach from 3rd commit how do you do that?
+
+Merging other request in ui.
+Revert
+Alias
+Fork and clone
+diff
+stash
+hooks
